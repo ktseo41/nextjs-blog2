@@ -1,18 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { getAllPostIds, getPostDatasFromId } from "../../lib/posts";
 
 export default function Post({ id, processedContent }) {
-  const content = useRef();
-  useEffect(() => {
-    content.current.innerHTML = processedContent;
-  }, [content.current]);
   return (
     <div>
       <h3>{id}</h3>
-      <div ref={content}></div>
+      <div dangerouslySetInnerHTML={{ __html: processedContent }}></div>
     </div>
   );
-  return <div>{id}</div>;
 }
 
 export async function getStaticPaths() {

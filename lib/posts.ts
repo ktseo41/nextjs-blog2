@@ -8,13 +8,19 @@ const postsDirectory = process.env.POSTS_LOCATION;
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ""),
-      },
-    };
-  });
+  return fileNames
+    .map((fileName) => {
+      return {
+        params: {
+          id: fileName.replace(/\.md$/, ""),
+        },
+      };
+    })
+    .reduce((accu, curr) => {
+      if (curr.params.id.includes(".un~") || curr.params.id.includes("~"))
+        return [...accu];
+      return [...accu, curr];
+    }, []);
 }
 
 export function getPostDatasFromId(id: string) {
