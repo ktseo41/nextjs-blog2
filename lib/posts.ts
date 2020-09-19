@@ -19,6 +19,8 @@ export function getAllPostIds() {
     .reduce((accu, curr) => {
       if (curr.params.id.includes(".un~") || curr.params.id.includes("~"))
         return [...accu];
+      if (curr.params.id === "wiki" || curr.params.id === "diary")
+        return [...accu];
       return [...accu, curr];
     }, []);
 }
