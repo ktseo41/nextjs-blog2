@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import styles from "./layout.module.css";
 
 export default function Layout({ children }) {
   return (
@@ -15,7 +16,7 @@ export default function Layout({ children }) {
       <header>
         <h2>bohyeon's blog</h2>
       </header>
-      <section className="contents">{children}</section>
+      <section className={styles.container}>{children}</section>
     </div>
   );
 }
