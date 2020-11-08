@@ -1,7 +1,6 @@
 import React from "react";
 import { getAllPostIds } from "../lib/posts";
 import Link from "next/link";
-import { Fragment } from "react";
 import Layout from "../components/Layout";
 
 export default function Home({ ids }) {

@@ -4,7 +4,7 @@ import styles from "./layout.module.css";
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className={styles.container}>
       <Head>
         <link
           rel="shortcut icon"
@@ -13,10 +13,13 @@ export default function Layout({ children }) {
         />
         <title>bohyeon blog</title>
       </Head>
-      <header>
+      <header className={styles.header}>
         <h2>bohyeon's blog</h2>
       </header>
-      <section className={styles.container}>{children}</section>
+      <section className={styles.body}>{children}</section>
+      <footer className={styles.footer}>
+        footer
+      </footer>
     </div>
   );
 }
