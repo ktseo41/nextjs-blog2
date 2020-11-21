@@ -4,7 +4,7 @@ import marked from "marked";
 import path from "path";
 dotenv.config();
 
-const postsDirectory = process.env.POSTS_LOCATION;
+const postsDirectory = path.join(process.cwd(), '/blog/wiki')
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
