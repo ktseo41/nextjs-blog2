@@ -1,7 +1,6 @@
 const axios = require('axios') 
 const cheerio = require('cheerio') 
 const dotenv = require('dotenv') 
-const path = require('path')
 const express = require('express') 
 const next = require('next')
 dotenv.config();
@@ -11,7 +10,6 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-// const app = express();
 const PORT = process.env.PORT || "3000";
 
 const startTime = new Date();
@@ -93,14 +91,4 @@ app.prepare().then(() => {
   })
   server.listen(PORT, () => console.log("server started!"));
 })
-
-
-// app.use(express.static('out'))
-
-// app.route('/out')
-// .get(function(req, res){
-
-//   res.sendFile( 'index.html' , {root: 'out'})
-// })
-
 
