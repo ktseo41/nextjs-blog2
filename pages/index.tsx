@@ -9,7 +9,7 @@ export default function Home({ ids }) {
       {ids.map(({ params: { id } }, idx) => {
         return (
           <div key={idx}>
-            <Link href={`/posts/${id}`}>
+            <Link href={`/posts/[id]`} as={`/posts/${id}`}>
               <a>{id}</a>
             </Link>
           </div>
