@@ -5,10 +5,10 @@
 -   TIL
 -   기술 정리
 -   에세이
--   서평, 하루 한줄
+-   서평
 -   일상 기록 및 소통 (동물의 숲, 음악, 영화 취향)
 
-### 기록 공간을 어떻게 할 것인가?
+### 기록 공간
 
 #### 현재
 
@@ -20,24 +20,16 @@
 -   왓챠 : 영화평, 별점
 -   naver blog : 과거 기록들
 -   (없지만)브런치 : 에세이, 서평
--   카카오 프로젝트 100 : 하루 한줄
 -   onenote : 서평, 에세이
 
-#### 이상적인 형태?
-
--   분산을 하고 (모을 수 없는 이유는 instagram, facebook, github, 왓챠 등 고유하게 지원하는 기능들 때문이고, 한 곳에 모든 것들을 모으는 것도 맞지 않아보여서다.)
--   custom blog를 portal처럼 쓰는 것
--   나머지에서는 custom blog 주소를 모두 적어놓는다.
-
-#### 따라서 이상적인 형태
+#### 이상적인 형태
 
 -   custom blog
-    -   기술, TIL, 링크 (github, 왓챠, instagram, brunch)
-    -   네이버 블로그에 간간히 업데이트
--   github
--   왓챠
--   instagram
--   brunch
+    -   기술, TIL + 링크모음 (github, 왓챠, instagram)
+
+## 기술 선택
+
+-   vimwiki + nextjs + nodejs server
 
 ### 왜 굳이 다시 블로그를 만들까?
 
@@ -50,22 +42,10 @@
 
 -   자유로운 커스텀화가 필요하다고 생각한다.
 -   tistory는 기본적인 환경은 좋으나 / 바꾸고 싶을 때 제약이 많다.
--   wordpress를 잘 익히면 자유로운 커스텀이 가능할 것 같다.
--   아마도 그 자체로도 내 쓸모가 올라갈 것 같기도 하고
--   wordpress로 통일할까
+-   wordpress를 잘 익히면 자유로운 커스텀이 가능할 것 같다. 아마도 그 자체로도 내 쓸모가 올라갈 것 같기도 하고
 -   그래도 개발자라면..? 그래 일단 간지가 난다. 못생겼어도
--   그리고 기계인간, 종립, 존그립 (동일인물)이라는 걸출한 보조자가 있으시다.
 -   vim에 익숙해지는 것도 큰 덤일 것이다.
 -   어렵겠지만 일단 시도해보자.
-
-### 결론적으로
-
--   사실상 github + velog를 합치는 것
--   기술 + TIL 정리용이다.
-
-## 기술 선택
-
--   vimwiki + static generator + github pages
 
 #### vimwiki
 
@@ -84,12 +64,18 @@
 
 -   https://medium.com/@jungseobshin/vim-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%B2%95-4%EC%A3%BC-%EA%B3%84%ED%9A%8D-77f3f7e263f7
 
-#### static generator (후보 gatsby, hugo)
+#### ~~static generator (후보 gatsby, hugo)~~
 
 -   jekyll은 제외했다. 최신을 좋아하므로 gem은 조금 구식처럼 느껴졌다.(실제로는 별 상관 없을테지만)
 -   go를 넣은 이유는 트렌디할 것 같아서이다. 그리고 익힌다면 유용할 것 같다.
 -   이런 심적인 이유들을 제외한다면 gatsby가 제일 나을 것 같다. 익숙한 언어이고 충분히 광범위하게 쓰이고 있어서
 -   그렇지만 hugo로 결정! go 템플릿 언어로 간단히 쓰면 어렵지 않겠지, 가장 트렌디 하니까, 익혀야 하는 것이 그래서 go와 vim이 되었다.
+
+#### aws server + (custom server)nextjs
+
+-   static generator를 사용해서 블로그를 올리는 것이 제일 좋을 것이지만, 서버에서 직접 serving 하도록 해보고 싶었다. aws free tier로 ec2를 하나 개설하고, 해당 서버에서 nextjs를 이용한 서버를 실행시켰다.
+-   백그라운드 작업을 하고 싶어서 custom server를 사용했다.
+    -    https://nextjs.org/docs/advanced-features/custom-server
 
 ## 과정
 
@@ -101,6 +87,5 @@
 ## 참고
 
 -   https://johngrib.github.io/wiki/my-wiki/?utm_source=gaerae.com&utm_campaign=%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%8A%A4%EB%9F%BD%EB%8B%A4&utm_medium=social
-
 -   https://www.staticgen.com/
 
