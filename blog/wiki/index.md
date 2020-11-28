@@ -45,3 +45,5 @@
 ## [daily](daily.md)
 
 ## [blog](blog)
+
+## [rust](rust)
