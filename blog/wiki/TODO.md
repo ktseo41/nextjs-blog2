@@ -4,3 +4,4 @@
 -  최신 글이 블로그 상단에 오도록하기
 -  미리보기 5줄
 -  header footer
+-  action으로 master push 시 aws에서 pull 하도록

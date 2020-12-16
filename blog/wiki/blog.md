@@ -76,6 +76,7 @@
 -   static generator를 사용해서 블로그를 올리는 것이 제일 좋을 것이지만, 서버에서 직접 serving 하도록 해보고 싶었다. aws free tier로 ec2를 하나 개설하고, 해당 서버에서 nextjs를 이용한 서버를 실행시켰다.
 -   백그라운드 작업을 하고 싶어서 custom server를 사용했다.
     -    https://nextjs.org/docs/advanced-features/custom-server
+-   aws 보안 rule에 80번 포트를 허용하고, ec2 instance에서 iptable에 80 포트로 들어오는 요청을 3000으로 redirect 하도록 했다.
 
 ## 과정
 
