@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 
 export default function Home({ ids }) {
   return (
-    <Layout>
+    <>
       {ids.map(({ params: { id } }, idx) => {
         return (
           <div key={idx}>
@@ -15,7 +15,7 @@ export default function Home({ ids }) {
           </div>
         );
       })}
-    </Layout>
+    </>
   );
 }
 

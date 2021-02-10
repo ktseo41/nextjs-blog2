@@ -1,26 +1,42 @@
 import React from "react";
-import Head from "next/head";
-import styles from "./layout.module.css";
 import TopAppBar from "./TopAppBar";
-import { Container } from "@material-ui/core";
+import {
+  BottomNavigation,
+  BottomNavigationAction,
+  Container,
+  makeStyles,
+  Paper,
+} from "@material-ui/core";
+import { Favorite, LocationCity, Restore } from "@material-ui/icons";
+
+const useStyles = makeStyles({
+  bottomNavigation: {
+    width: "100%",
+    position: "fixed",
+    bottom: 0,
+  },
+  body: {
+    margin: "0px 16px",
+  },
+});
 
 export default function Layout({ children }) {
+  const classes = useStyles();
   return (
-    // <div className={styles.container}>
-      <Container disableGutters={true}>
-        <TopAppBar />
-        <Head>
-          <link
-            rel="shortcut icon"
-            href="/noun_Whale Tail_3413920.ico"
-            type="image/x-icon"
-          />
-          <title>bohyeon blog</title>
-        </Head>
-        <header className={styles.header}>
-          <h2>안녕하세요</h2>
-        </header>
-        <section className={styles.body}>{children}</section>
-      </Container>
+    <Container disableGutters={true}>
+      <TopAppBar />
+      <section className={classes.body}>{children}</section>
+      <footer>footer</footer>
+      {/* 기본적으로 하단 fixed가 아니라서 구글 뉴스를 보니 position fixed를 했음. 구글링도 유사하게 답 */}
+      {/* 기본 elevation이 되있지 않아 찾아보니 :  You can wrap the BottomNavigation with a Paper component, it has an elevation property. */}
+      {/* 출처 : https://github.com/mui-org/material-ui/issues/13953 */}
+      <Paper className={classes.bottomNavigation} elevation={3}>
+        <BottomNavigation>
+          <BottomNavigationAction showLabel={true} label="글" icon={<Restore />} />
+          <BottomNavigationAction showLabel={true} label="카테고리" icon={<LocationCity />} />
+          <BottomNavigationAction showLabel={true} label="About" icon={<Favorite />} />
+        </BottomNavigation>
+      </Paper>
+    </Container>
   );
 }

@@ -1,12 +1,25 @@
+import { makeStyles } from "@material-ui/core";
 import React from "react";
 import { getAllPostIds, getPostDatasFromId } from "../../lib/posts";
 
+const useStyles = makeStyles({
+  markedBody: {
+    wordBreak: "break-word",
+  },
+});
+
+
 export default function Post({ id, processedContent }) {
+  const classes = useStyles();
+
   return (
-    <div>
+    <>
       <h3>{id}</h3>
-      <div dangerouslySetInnerHTML={{ __html: processedContent }}></div>
-    </div>
+      <div
+          className={classes.markedBody}
+          dangerouslySetInnerHTML={{ __html: processedContent }}
+      ></div>
+    </>
   );
 }
 
