@@ -1,11 +1,8 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import { Avatar } from "@material-ui/core";
+import { Avatar, ButtonBase, IconButton, Typography, Toolbar, AppBar } from "@material-ui/core";
 import { Search } from "@material-ui/icons";
+import Link from "next/link";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,7 +20,11 @@ export default function TopAppBar() {
     <AppBar color="primary" position="static">
       <Toolbar className={classes.toolbar}>
         <Avatar alt="Bohyeon" src="/bohyeon.jpeg" />
-        <Typography>보현's blog</Typography>
+        <ButtonBase>
+            <Link href="/">
+              <Typography>보현's blog</Typography>
+            </Link>
+        </ButtonBase>
         <IconButton>
           <Search />
         </IconButton>
