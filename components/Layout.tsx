@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => {
 export default function Layout({ children }) {
   const classes = useStyles();
   return (
-    <Container disableGutters={true}>
+    <Container maxWidth={false} disableGutters={true}>
       <TopAppBar />
       <section className={classes.body}>{children}</section>
       <footer className={classes.footer}>footer</footer>
@@ -37,11 +37,7 @@ export default function Layout({ children }) {
       {/* 출처 : https://github.com/mui-org/material-ui/issues/13953 */}
       <Box className={classes.bottomNavigation} boxShadow={3}>
         <BottomNavigation>
-          <BottomNavigationAction
-            showLabel={true}
-            label="포스트"
-            icon={<Description />}
-          />
+          <BottomNavigationAction showLabel={true} label="포스트" icon={<Description />} />
           <BottomNavigationAction showLabel={true} label="카테고리" icon={<Menu />} />
           <BottomNavigationAction showLabel={true} label="About Me" icon={<AccountCircle />} />
         </BottomNavigation>
