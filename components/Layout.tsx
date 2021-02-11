@@ -3,11 +3,11 @@ import TopAppBar from "./TopAppBar";
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Box,
   Container,
   makeStyles,
-  Paper,
 } from "@material-ui/core";
-import { Favorite, LocationCity, Restore } from "@material-ui/icons";
+import { Menu, Description, AccountCircle } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -35,13 +35,17 @@ export default function Layout({ children }) {
       {/* 기본적으로 하단 fixed가 아니라서 구글 뉴스를 보니 position fixed를 했음. 구글링도 유사하게 답 */}
       {/* 기본 elevation이 되있지 않아 찾아보니 :  You can wrap the BottomNavigation with a Paper component, it has an elevation property. */}
       {/* 출처 : https://github.com/mui-org/material-ui/issues/13953 */}
-      <Paper className={classes.bottomNavigation} elevation={3}>
+      <Box className={classes.bottomNavigation} boxShadow={3}>
         <BottomNavigation>
-          <BottomNavigationAction showLabel={true} label="글" icon={<Restore />} />
-          <BottomNavigationAction showLabel={true} label="카테고리" icon={<LocationCity />} />
-          <BottomNavigationAction showLabel={true} label="About" icon={<Favorite />} />
+          <BottomNavigationAction
+            showLabel={true}
+            label="포스트"
+            icon={<Description />}
+          />
+          <BottomNavigationAction showLabel={true} label="카테고리" icon={<Menu />} />
+          <BottomNavigationAction showLabel={true} label="About Me" icon={<AccountCircle />} />
         </BottomNavigation>
-      </Paper>
+      </Box>
     </Container>
   );
 }
