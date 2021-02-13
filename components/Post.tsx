@@ -19,12 +19,12 @@ export function ImageTopPost({
   chips = ["css", "javascript", "web"],
   imageSrc = "https://picsum.photos/344/194",
 }: {
-  title: string;
-  createdTime: number;
-  modifiedTime: number;
-  description: string;
-  chips: string[];
-  imageSrc: string;
+  title?: string;
+  createdTime?: number;
+  modifiedTime?: number;
+  description?: string;
+  chips?: string[];
+  imageSrc?: string;
 }) {
   return (
     <Card elevation={0}>
@@ -56,12 +56,12 @@ export function ImageRightPost({
   chips = ["css", "javascript", "web"],
   imageSrc = "/bohyeon.jpeg",
 }: {
-  title: string;
-  createdTime: number;
-  modifiedTime: number;
-  description: string;
-  chips: string[];
-  imageSrc: string;
+  title?: string;
+  createdTime?: number;
+  modifiedTime?: number;
+  description?: string;
+  chips?: string[];
+  imageSrc?: string;
 }) {
   return (
     <Card elevation={0}>
