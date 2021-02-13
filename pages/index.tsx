@@ -1,7 +1,8 @@
 import React from "react";
 import { getAllPostIds } from "../lib/posts";
 import Link from "next/link";
-import { Box, makeStyles, Typography } from "@material-ui/core";
+import { Box, Card, makeStyles, Typography } from "@material-ui/core";
+import Section from "../components/Section";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -20,12 +21,16 @@ export default function Home({ ids }) {
   return (
     <>
       <Box display="grid" className={classes.welcomeBox}>
-        <Typography variant="h5">
-          안녕하세요!
-          <Typography variant="body1">제 블로그에 오신걸 환영합니다!</Typography>
-        </Typography>
+        <Card elevation={0}>
+          <Typography variant="h5">
+            안녕하세요!
+            <Typography variant="body1">제 블로그에 오신걸 환영합니다!</Typography>
+          </Typography>
+        </Card>
       </Box>
-      {ids.map(({ params: { id } }, idx) => {
+      <Section title='section 1' />
+      <Section title="section 2" noTopImagePost={true}  />
+      {/* {ids.map(({ params: { id } }, idx) => {
         return (
           <div key={idx}>
             <Link href={`/posts/[id]`} as={`/posts/${id}`}>
@@ -33,7 +38,7 @@ export default function Home({ ids }) {
             </Link>
           </div>
         );
-      })}
+      })} */}
     </>
   );
 }
