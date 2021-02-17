@@ -1,3 +1,9 @@
+---
+title : git
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-17 17:14:19 +0900
+tag : 
+---
 # git
 
 ## 출처
@@ -100,4 +106,3 @@ You are in 'detached HEAD' state.
 
 -   https://www.drupixels.com/blog/git-tags-guide-create-delete-push-tags-remote-and-much-more
 -   https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EA%B8%B0%EC%B4%88-%ED%83%9C%EA%B7%B8
-

@@ -2,8 +2,6 @@
 
 ## [vim](vim.md)
 
-## [vimwiki](vimwiki.md)
-
 ## [vimscript](vimscript.md)
 
 ## [hugo](hugo.md)
@@ -31,8 +29,6 @@
 ### network
 
 #### [firewall](firewall)
-
-## [regex](regex.md)
 
 ### [regex실습](regex실습.md)
 

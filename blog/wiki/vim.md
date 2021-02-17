@@ -1,3 +1,9 @@
+---
+title : vim
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-17 17:11:19 +0900
+tag : 
+---
 ## 공부
 
 -   https://www.openvim.com/
@@ -54,3 +60,4 @@
 ## 한글 매핑
 
 -  https://www.reddit.com/r/vim/comments/as3irj/movement_keys_hjkl_and_alternate_keyboards/
+

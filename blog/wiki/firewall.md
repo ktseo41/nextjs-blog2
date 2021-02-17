@@ -1,4 +1,10 @@
-## [firewall](firewall)
+---
+title : firewall
+created : 2020-12-16 12:12:37 +0900
+modified : 2021-02-17 17:17:55 +0900
+tag : 
+---
+## firewall
 ### 방화벽이란?
 
 - 방화벽

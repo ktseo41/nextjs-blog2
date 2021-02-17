@@ -1,3 +1,9 @@
+---
+title : MIME
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-17 17:17:00 +0900
+tag : 
+---
 ## MIME
 
 -  인터넷은 수천 가지 데이터 타입을 다루기 때문에, HTTP는 웹에서 전송되는 객체 각각에 신중하게 MIME 타입이라는 데이터 포맷 라벨을 붙인다.
@@ -6,4 +12,4 @@
 -  주 타입(primary object type)/부타입(specific subtype)으로 나뉜다.
   -  HTML : text/html
   -  JPEG : image/jpeg
-  -  마이크로소프트 파워포인트 프레젠테이션 : application/vnd.ms-powerpoint
+  -  마이크로소프트 파워포인트 프레젠테이션 : application/vnd.ms-powerpoint 

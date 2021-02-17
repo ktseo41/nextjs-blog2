@@ -1,3 +1,9 @@
+---
+title : blog
+created : 2020-12-16 12:12:37 +0900
+modified : 2021-02-17 17:20:54 +0900
+tag : 
+---
 ## 나만의 블로그 만들기 작업
 
 ### 원하는 게시 컨텐츠
@@ -89,4 +95,3 @@
 
 -   https://johngrib.github.io/wiki/my-wiki/?utm_source=gaerae.com&utm_campaign=%EA%B0%9C%EB%B0%9C%EC%9E%90%EC%8A%A4%EB%9F%BD%EB%8B%A4&utm_medium=social
 -   https://www.staticgen.com/
-

@@ -1,3 +1,9 @@
+---
+title : typeScript
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-17 17:16:21 +0900
+tag : 
+---
 ### 타입스크립트 개론
 
 -   변수나 함수 등에 명시적으로 타입을 추가할 수 있음
@@ -390,4 +396,3 @@ let sum: sumFunc = (num1: number, num2: number){
 
 }
 ```
-

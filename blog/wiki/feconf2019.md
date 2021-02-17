@@ -1,7 +1,13 @@
+---
+title : feconf2019
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-17 17:15:25 +0900
+tag : 
+---
 ## react + typescript
 
 -   time travel
--   좋은 테스트 환경 ㅁ치 도구
+-   좋은 테스트 환경 및 도구
 -   함수형 컴포넌트
 -   server side rendering에도 적용하기 쉽고, react native 지원
 

@@ -1,3 +1,9 @@
+---
+title : rust
+created : 2020-11-28 22:45:30 +0900
+modified : 2021-02-17 17:21:04 +0900
+tag : 
+---
 ## Rust
 [https://learning-rust.github.io/](https://learning-rust.github.io/)
 
