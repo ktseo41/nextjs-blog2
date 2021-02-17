@@ -5,27 +5,29 @@ import { ImageRightPost, ImageTopPost } from "./Post";
 export default function Section({
   title = "",
   noTopImagePost = false,
+  posts = [],
 }: {
   title?: string;
   noTopImagePost?: boolean;
+  posts?: any[];
 }) {
   return (
     <Container disableGutters={true}>
       <Box style={{ padding: "16px 0" }}>
         <Typography variant="subtitle1">{title}</Typography>
       </Box>
-      {new Array(5).fill(undefined).map((_, id, { length }) => {
+      {posts.map(({ title, created, modified , tag }, id, { length }) => {
         if (id === 0 && !noTopImagePost)
           return (
             <>
-              <ImageTopPost />
+              <ImageTopPost title={title} createdTime={created} />
               <Divider />
             </>
           );
         if (id === length - 1)
           return (
             <>
-              <ImageRightPost />
+              <ImageRightPost title={title} createdTime={created} />
               <Divider />
               <Box display="flex" justifyContent="center" style={{ padding: 16 }}>
                 <Typography>More Posts</Typography>
@@ -34,7 +36,7 @@ export default function Section({
           );
         return (
           <>
-            <ImageRightPost />
+            <ImageRightPost title={title} createdTime={created} />
             <Divider />
           </>
         );
