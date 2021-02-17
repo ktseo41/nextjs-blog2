@@ -1,3 +1,9 @@
+---
+title : autocmd
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-18 04:40:20 +0900
+tag : 
+---
 ## [autocmd](autocmd.md)
 
 -   BufNewFile 새 파일을 만들어서 편집하기 시작함

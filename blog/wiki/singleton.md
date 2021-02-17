@@ -1,3 +1,9 @@
+---
+title : singleton
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-18 04:25:32 +0900
+tag : 
+---
 ## 자바스크립트 디자인 패턴 - PACKT
 
 ### 싱글톤
@@ -221,4 +227,3 @@ Conference.caches.RestaurantsWithinRadiusCache = (function() {
 -   use a singleton as the source of config settings for web app or on client side API etc.
 -   shared namespace를 제공해서 함수에 접근할 수 있는 유일한 point 를 제공한다.
     -   jQuery가 singleton. ( \$로 접근 )
-

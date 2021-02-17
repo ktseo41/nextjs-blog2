@@ -1,2 +1,0 @@
-## vimwiki
-### vimrc

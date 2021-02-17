@@ -1,3 +1,9 @@
+---
+title : ncloud
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-18 04:20:32 +0900
+tag : 
+---
 ## 기본 server-setting
 
 ### 서버 신청
@@ -49,4 +55,3 @@ apt-get upgrade
         문서 중 'Install a specific version using the version string from the second column, for example'에서는 위와같이 입력해주면 된다.
 
     -   OS requirements 중 `Disco 19.04, Cosmic 18.10, Bionic 18.04 (LTS), Xenial 16.04 (LTS)`들은 ubuntu version 들의 별칭이다.
-

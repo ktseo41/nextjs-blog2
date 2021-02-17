@@ -1,3 +1,9 @@
+---
+title : docker-mysql
+created : 2020-09-19 12:02:13 +0900
+modified : 2021-02-18 04:20:27 +0900
+tag : 
+---
 ## MySQL-docker
 
 1. docker에서 mysql이 실행되도록 하기
@@ -89,5 +95,4 @@ default-character-set = utf8
 3. volume사용 후 데이터가 유지돼서 비밀번호를 변경해도 유저비밀번호가 변경되지 않는 등의 문제
 
 -   `docker-compose up -V`
--   -V 옵션을 해주면 볼륨을 초기화 한다.
-
+# -   -V 옵션을 해주면 볼륨을 초기화 한다.
