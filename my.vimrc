@@ -45,7 +45,7 @@ function! WriteHeader()
     let b:saveWithHeader = input("make header? (y/n): ")
     if b:saveWithHeader != "n"
       call append(0, "---")
-      call append(1, "title : " . substitute(expand('%:t'), "\.md", "", ""))
+      call append(1, "title : " . substitute(expand('%:t'), "\\.md", "", ""))
       call append(2, "created : " . GetCreatedTime())
       call append(3, "modified : " . strftime('%Y-%m-%d %H:%M:%S +0900'))
       call append(4, "tag : ")
