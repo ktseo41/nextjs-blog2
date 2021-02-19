@@ -6,7 +6,7 @@ import path from "path";
 import { WikiHeader, WikiHeaderWithBody } from "../interfaces";
 dotenv.config();
 
-const postsDirectory = path.join(process.cwd(), '/blog/wiki')
+const postsDirectory = path.join(process.cwd(), "/blog/wiki");
 
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -19,12 +19,41 @@ export function getAllPostIds() {
       };
     })
     .reduce((accu, curr) => {
-      if (curr.params.id.includes(".un~") || curr.params.id.includes("~"))
-        return [...accu];
-      if (curr.params.id === "wiki" || curr.params.id === "diary")
-        return [...accu];
+      if (curr.params.id.includes(".un~") || curr.params.id.includes("~")) return [...accu];
+      if (curr.params.id === "wiki" || curr.params.id === "diary") return [...accu];
       return [...accu, curr];
     }, []);
+}
+
+async function getMinimumBodyFromId(id: string) {
+  const fullPath = path.join(postsDirectory, `${id}.md`);
+  const fileStream = fs.createReadStream(fullPath);
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity,
+  });
+
+  let body = "";
+  let headerStarted = false;
+
+  for await (const line of rl) {
+    if (line === "---" && !headerStarted) {
+      headerStarted = true;
+      continue;
+    }
+    if (line === "---" && headerStarted) {
+      headerStarted = false;
+      continue;
+    }
+    if (headerStarted) continue;
+
+    if (line[0] === "#") continue;
+
+    body += line;
+    if (body.length >= 350) break;
+  }
+
+  return body;
 }
 
 async function getAllHeaders() {
@@ -67,37 +96,40 @@ async function getAllHeaders() {
 export async function getRecentCreatedPosts(goalCount: number): Promise<WikiHeaderWithBody[]> {
   const allHeaders = await getAllHeaders();
 
-  return allHeaders
-    .sort(
-      ({ created: createdA }, { created: createdB }) =>
-        new Date(createdB).getTime() - new Date(createdA).getTime()
-    )
-    .slice(0, goalCount)
-    .map((header) => {
-      return { ...header, texts: getPostTextsFromId(header.title) };
-    });
+  return Promise.all(
+    allHeaders
+      .sort(
+        ({ created: createdA }, { created: createdB }) =>
+          new Date(createdB).getTime() - new Date(createdA).getTime()
+      )
+      .slice(0, goalCount)
+      .map(async (header) => {
+        const texts = await getMinimumBodyFromId(header.title);
+        console.log(texts);
+        return { ...header, texts };
+      })
+  );
 }
 
 export async function getRecentModifiedPosts(goalCount: number): Promise<WikiHeaderWithBody[]> {
   const allHeaders = await getAllHeaders();
 
-  return allHeaders
-    .sort(
-      ({ modified: modifiedA }, { modified: modifiedB }) =>
-        new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
-    )
-    .slice(0, goalCount)
-    .map((header) => {
-      return { ...header, texts: getPostTextsFromId(header.title) };
-    });
+  return Promise.all(
+    allHeaders
+      .sort(
+        ({ modified: modifiedA }, { modified: modifiedB }) =>
+          new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
+      )
+      .slice(0, goalCount)
+      .map(async (header) => {
+        const texts = await getMinimumBodyFromId(header.title);
+        return { ...header, texts };;
+      })
+  );
 }
 
 function deleteHeader(html: string) {
   return html.replace(/<hr>\n(.|\n)*?\n<hr>\n/, "");
-}
-
-function deleteHeadingAndTags(html: string) {
-  return html.replace(/<(h[\d]).*<\/\1>/g, "").replace(/<[^>]+>/g, "");
 }
 
 export function getPostDatasFromId(id: string, _deleteHeader: boolean = true): string {
@@ -107,9 +139,4 @@ export function getPostDatasFromId(id: string, _deleteHeader: boolean = true): s
   const processedContent = marked(fileContents);
 
   return _deleteHeader ? deleteHeader(processedContent) : processedContent;
-}
-
-export function getPostTextsFromId(id: string) {
-  const htmlExceptHeader = getPostDatasFromId(id);
-  return deleteHeadingAndTags(htmlExceptHeader);
 }
