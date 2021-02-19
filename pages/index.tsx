@@ -1,9 +1,8 @@
 import React from "react";
-import { getAllPostIds, getRecentCreatedPosts, getRecentModifiedPosts } from "../lib/posts";
-import Link from "next/link";
+import { getRecentCreatedPosts, getRecentModifiedPosts } from "../lib/posts";
 import { Box, Card, makeStyles, Typography } from "@material-ui/core";
 import Section from "../components/Section";
-import { WikiHeader } from "../interfaces";
+import { WikiHeaderWithBody } from "../interfaces";
 import { WikiHeaderKey } from "../constants";
 
 const useStyles = makeStyles((theme) => {
@@ -17,8 +16,8 @@ const useStyles = makeStyles((theme) => {
 });
 
 type HomeProps = {
-  recentCreatedHeaders: WikiHeader[];
-  recentModifiedHeaders: WikiHeader[];
+  recentCreatedHeaders: WikiHeaderWithBody[];
+  recentModifiedHeaders: WikiHeaderWithBody[];
 };
 
 export default function Home({ recentCreatedHeaders, recentModifiedHeaders }: HomeProps) {

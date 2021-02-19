@@ -3,7 +3,7 @@ import readline from "readline";
 import * as dotenv from "dotenv";
 import marked from "marked";
 import path from "path";
-import { WikiHeader } from "../interfaces";
+import { WikiHeader, WikiHeaderWithBody } from "../interfaces";
 dotenv.config();
 
 const postsDirectory = path.join(process.cwd(), '/blog/wiki')
@@ -64,7 +64,7 @@ async function getAllHeaders() {
   );
 }
 
-export async function getRecentCreatedPosts(goalCount: number) {
+export async function getRecentCreatedPosts(goalCount: number): Promise<WikiHeaderWithBody[]> {
   const allHeaders = await getAllHeaders();
 
   return allHeaders
@@ -72,29 +72,44 @@ export async function getRecentCreatedPosts(goalCount: number) {
       ({ created: createdA }, { created: createdB }) =>
         new Date(createdB).getTime() - new Date(createdA).getTime()
     )
-    .slice(0, goalCount);
+    .slice(0, goalCount)
+    .map((header) => {
+      return { ...header, texts: getPostTextsFromId(header.title) };
+    });
 }
 
-export async function getRecentModifiedPosts(goalCount: number) {
+export async function getRecentModifiedPosts(goalCount: number): Promise<WikiHeaderWithBody[]> {
   const allHeaders = await getAllHeaders();
 
   return allHeaders
     .sort(
       ({ modified: modifiedA }, { modified: modifiedB }) =>
-      new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
+        new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
     )
-    .slice(0, goalCount);
+    .slice(0, goalCount)
+    .map((header) => {
+      return { ...header, texts: getPostTextsFromId(header.title) };
+    });
 }
 
 function deleteHeader(html: string) {
   return html.replace(/<hr>\n(.|\n)*?\n<hr>\n/, "");
 }
 
-export function getPostDatasFromId(id: string, _deleteHeader: boolean = true) {
+function deleteHeadingAndTags(html: string) {
+  return html.replace(/<(h[\d]).*<\/\1>/g, "").replace(/<[^>]+>/g, "");
+}
+
+export function getPostDatasFromId(id: string, _deleteHeader: boolean = true): string {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const processedContent = marked(fileContents);
 
   return _deleteHeader ? deleteHeader(processedContent) : processedContent;
+}
+
+export function getPostTextsFromId(id: string) {
+  const htmlExceptHeader = getPostDatasFromId(id);
+  return deleteHeadingAndTags(htmlExceptHeader);
 }

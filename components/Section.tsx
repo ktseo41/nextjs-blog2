@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Container, Divider, Typography } from "@material-ui/core";
 import { ImageRightPost, ImageTopPost } from "./Post";
-import { WikiHeader } from "../interfaces";
+import { WikiHeaderWithBody } from "../interfaces";
 import { WikiHeaderKey } from "../constants";
 
 export default function Section({
@@ -14,7 +14,7 @@ export default function Section({
   noTopImagePost?: boolean;
   // https://stackoverflow.com/questions/48850720/typescript-how-can-omit-some-items-from-an-enum-in-typescript
   sortBy?: Exclude<WikiHeaderKey, WikiHeaderKey.TAG | WikiHeaderKey.TITLE>;
-  posts?: WikiHeader[];
+  posts?: WikiHeaderWithBody[];
 }) {
   return (
     <Container disableGutters={true}>
@@ -25,14 +25,22 @@ export default function Section({
         if (id === 0 && !noTopImagePost)
           return (
             <div key={header.title}>
-              <ImageTopPost title={header.title} timeToDisplay={header[sortBy]} />
+              <ImageTopPost
+                title={header.title}
+                description={header.texts}
+                timeToDisplay={header[sortBy]}
+              />
               <Divider />
             </div>
           );
         if (id === length - 1)
           return (
             <div key={header.title}>
-              <ImageRightPost title={header.title} timeToDisplay={header[sortBy]} />
+              <ImageRightPost
+                title={header.title}
+                description={header.texts}
+                timeToDisplay={header[sortBy]}
+              />
               <Divider />
               <Box display="flex" justifyContent="center" style={{ padding: 16 }}>
                 <Typography>More Posts</Typography>
@@ -41,7 +49,11 @@ export default function Section({
           );
         return (
           <div key={header.title}>
-            <ImageRightPost title={header.title} timeToDisplay={header[sortBy]} />
+            <ImageRightPost
+              title={header.title}
+              description={header.texts}
+              timeToDisplay={header[sortBy]}
+            />
             <Divider />
           </div>
         );

@@ -6,3 +6,5 @@ export type WikiHeader = {
   [WikiHeaderKey.MODIFIED]: number;
   [WikiHeaderKey.TAG]: string;
 };
+
+export type WikiHeaderWithBody = WikiHeader & { texts: string };
