@@ -57,7 +57,7 @@ export function ImageTopPost({
             <Typography variant="caption">{getTimeDiffByUnit(timeToDisplay)} days ago</Typography>
             <Typography className={classes.trunc} style={{ marginTop: 8 }} variant="body2">
               {description}
-              <Typography variant="body2" className={classes.fade}></Typography>
+              <Typography variant="body2" component="span" className={classes.fade}></Typography>
             </Typography>
             <CardActions style={{ padding: "8px 0 0 0" }}>
               {chips.map((chip) => {
@@ -97,7 +97,11 @@ export function ImageRightPost({
                 </Typography>
                 <Typography className={classes.trunc} variant="body2">
                   {description}
-                  <Typography variant="body2" className={classes.fade}></Typography>
+                  <Typography
+                    variant="body2"
+                    component="span"
+                    className={classes.fade}
+                  ></Typography>
                 </Typography>
               </Box>
               <Image alt="random2" width={72} height={72} src={imageSrc} />
