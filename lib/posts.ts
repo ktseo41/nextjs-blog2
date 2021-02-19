@@ -47,7 +47,7 @@ async function getMinimumBodyFromId(id: string) {
     }
     if (headerStarted) continue;
 
-    if (line[0] === "#") continue;
+    if (line.includes("##")) continue;
 
     body += line;
     if (body.length >= 350) break;
