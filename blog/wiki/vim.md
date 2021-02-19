@@ -1,7 +1,7 @@
 ---
 title : vim
 created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-17 17:11:19 +0900
+modified : 2021-02-19 22:12:02 +0900
 tag : 
 ---
 ## 공부
@@ -14,7 +14,7 @@ tag :
 
 -   cw는 ce는 똑같다.
 
-## [autocmd](autocmd.md)
+## [autocmd](autocmd)
 ## vimrc
 
 ### 위치
