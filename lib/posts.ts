@@ -87,16 +87,20 @@ export async function getRecentModifiedPosts(goalCount: number) {
   return allHeaders
     .sort(
       ({ modified: modifiedA }, { modified: modifiedB }) =>
-        new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
+      new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
     )
     .slice(0, goalCount);
 }
 
-export function getPostDatasFromId(id: string) {
+function deleteHeader(html: string) {
+  return html.replace(/<hr>\n(.|\n)*?\n<hr>\n/, "");
+}
+
+export function getPostDatasFromId(id: string, _deleteHeader: boolean = true) {
   const fullPath = path.join(postsDirectory, `${id}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
   const processedContent = marked(fileContents);
 
-  return processedContent;
+  return _deleteHeader ? deleteHeader(processedContent) : processedContent;
 }

@@ -14,10 +14,9 @@ export default function Post({ id, processedContent }) {
 
   return (
     <>
-      <h3>{id}</h3>
       <div
-          className={classes.markedBody}
-          dangerouslySetInnerHTML={{ __html: processedContent }}
+        className={classes.markedBody}
+        dangerouslySetInnerHTML={{ __html: processedContent }}
       ></div>
     </>
   );
