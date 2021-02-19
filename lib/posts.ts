@@ -105,7 +105,6 @@ export async function getRecentCreatedPosts(goalCount: number): Promise<WikiHead
       .slice(0, goalCount)
       .map(async (header) => {
         const texts = await getMinimumBodyFromId(header.title);
-        console.log(texts);
         return { ...header, texts };
       })
   );
