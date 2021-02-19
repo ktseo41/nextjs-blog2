@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import Link from "next/link";
 import Image from "next/image";
-import { getTimeDiffByUnit } from "../utils";
+import { getBeautifiedTimeDiffFromNow } from "../utils";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -54,7 +54,7 @@ export function ImageTopPost({
           {/* 기본 값이 16이지만.. */}
           <CardContent style={{ padding: 16 }}>
             <Typography variant="h6">{title}</Typography>
-            <Typography variant="caption">{getTimeDiffByUnit(timeToDisplay)} days ago</Typography>
+            <Typography variant="caption">{getBeautifiedTimeDiffFromNow(timeToDisplay)}</Typography>
             <Typography className={classes.trunc} style={{ marginTop: 8 }} variant="body2">
               {description}
               <Typography variant="body2" component="span" className={classes.fade}></Typography>
@@ -90,7 +90,7 @@ export function ImageRightPost({
       <Link href={`/posts/[id]`} as={`/posts/${title}`}>
         <CardActionArea>
           <CardContent>
-            <Box style={{ display: "grid", gridTemplateColumns: "repeat(2, auto)", columnGap: 16 }}>
+            <Box style={{ display: "grid", gridTemplateColumns: "auto 72px", columnGap: 16 }}>
               <Box>
                 <Typography gutterBottom={false} variant="h6">
                   {title}
@@ -107,7 +107,9 @@ export function ImageRightPost({
               <Image alt="random2" width={72} height={72} src={imageSrc} />
             </Box>
             <Box display="flex" alignItems="center" style={{ paddingTop: 16 }}>
-              <Typography variant="caption">{getTimeDiffByUnit(timeToDisplay)} days ago</Typography>
+              <Typography variant="caption">
+                {getBeautifiedTimeDiffFromNow(timeToDisplay)}
+              </Typography>
               <CardActions style={{ padding: 0, marginLeft: 16 }}>
                 {chips.map((chip) => {
                   return <Chip key={chip} clickable variant="outlined" size="small" label={chip} />;
