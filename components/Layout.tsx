@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => {
       bottom: 0,
     },
     body: {
-      margin: `0px ${theme.spacing(2)}px`,
+      margin: `${theme.spacing(7)}px ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
     },
     footer: {
       paddingBottom: theme.spacing(7),

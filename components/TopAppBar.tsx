@@ -17,13 +17,13 @@ export default function TopAppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar color="primary" position="static">
+    <AppBar color="primary" position="fixed">
       <Toolbar className={classes.toolbar}>
         <Avatar alt="Bohyeon" src="/bohyeon.jpeg" />
         <ButtonBase>
-            <Link href="/">
-              <Typography>보현's blog</Typography>
-            </Link>
+          <Link href="/">
+            <Typography>보현's blog</Typography>
+          </Link>
         </ButtonBase>
         <IconButton>
           <Search />
