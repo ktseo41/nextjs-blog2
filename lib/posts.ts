@@ -3,6 +3,7 @@ import readline from "readline";
 import * as dotenv from "dotenv";
 import marked from "marked";
 import path from "path";
+import { WikiHeader } from "../interfaces";
 dotenv.config();
 
 const postsDirectory = path.join(process.cwd(), '/blog/wiki')
@@ -25,13 +26,6 @@ export function getAllPostIds() {
       return [...accu, curr];
     }, []);
 }
-
-export type WikiHeader = {
-  title: string;
-  created: string;
-  modified: string;
-  tag: string;
-};
 
 async function getAllHeaders() {
   const fileNames = fs.readdirSync(postsDirectory);

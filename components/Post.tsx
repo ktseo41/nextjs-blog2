@@ -14,15 +14,13 @@ import { getTimeDiffByUnit } from "../utils";
 
 export function ImageTopPost({
   title = "Card Title",
-  createdTime = 2,
-  modifiedTime,
+  timeToDisplay = 1 * 24 * 60 * 60 * 1000,
   description = "card description. Ipsum nisi sunt dolor adipisicing velit duis velit ut ullamco",
   chips = ["css", "javascript", "web"],
   imageSrc = "https://picsum.photos/344/194",
 }: {
   title?: string;
-  createdTime?: number;
-  modifiedTime?: number;
+  timeToDisplay?: number;
   description?: string;
   chips?: string[];
   imageSrc?: string;
@@ -35,13 +33,13 @@ export function ImageTopPost({
           {/* 기본 값이 16이지만.. */}
           <CardContent style={{ padding: 16 }}>
             <Typography variant="h6">{title}</Typography>
-            <Typography variant="caption">{getTimeDiffByUnit(createdTime)} days ago</Typography>
+            <Typography variant="caption">{getTimeDiffByUnit(timeToDisplay)} days ago</Typography>
             <Typography style={{ marginTop: 8 }} variant="body2">
               {description}
             </Typography>
             <CardActions style={{ padding: "8px 0 0 0" }}>
               {chips.map((chip) => {
-                return <Chip clickable variant="outlined" size="small" label={chip} />;
+                return <Chip key={chip} clickable variant="outlined" size="small" label={chip} />;
               })}
             </CardActions>
           </CardContent>
@@ -53,15 +51,13 @@ export function ImageTopPost({
 
 export function ImageRightPost({
   title = "Card Title",
-  createdTime = 12,
-  modifiedTime,
+  timeToDisplay = 12,
   description = "card description. Ipsum nisi sunt dolor adipisicing",
   chips = ["css", "javascript", "web"],
   imageSrc = "/bohyeon.jpeg",
 }: {
   title?: string;
-  createdTime?: number;
-  modifiedTime?: number;
+  timeToDisplay?: number;
   description?: string;
   chips?: string[];
   imageSrc?: string;
@@ -80,10 +76,10 @@ export function ImageRightPost({
             <Image alt="random2" width={72} height={72} src={imageSrc} />
           </Box>
           <Box display="flex" alignItems="center" style={{ paddingTop: 16 }}>
-            <Typography variant="caption">{getTimeDiffByUnit(createdTime)} days ago</Typography>
+            <Typography variant="caption">{getTimeDiffByUnit(timeToDisplay)} days ago</Typography>
             <CardActions style={{ padding: 0, marginLeft: 16 }}>
               {chips.map((chip) => {
-                return <Chip clickable variant="outlined" size="small" label={chip} />;
+                return <Chip key={chip} clickable variant="outlined" size="small" label={chip} />;
               })}
             </CardActions>
           </Box>
