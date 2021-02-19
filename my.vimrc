@@ -37,6 +37,9 @@ function! GetCreatedTime()
   let l:fileName = expand('%:t')
   let l:currentAbsolutePath = expand('%:h')
   let l:createdTime = substitute(system('cd ' . currentAbsolutePath . ' && git log --pretty=format:"%cd" --date=format:"%Y-%m-%d %H:%M:%S %z" -- ' . l:fileName, 'getline("$")'), '\%x00.\+', "", "")
+  if l:createdTime == ""
+    return strftime('%Y-%m-%d %H:%M:%S +0900')
+  endif
   return l:createdTime
 endfunction 
 
