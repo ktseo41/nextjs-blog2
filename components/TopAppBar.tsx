@@ -1,7 +1,15 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import { Avatar, ButtonBase, IconButton, Typography, Toolbar, AppBar } from "@material-ui/core";
-import { Search } from "@material-ui/icons";
+import {
+  Avatar,
+  ButtonBase,
+  IconButton,
+  Typography,
+  Toolbar,
+  AppBar,
+  Box,
+} from "@material-ui/core";
+import { Menu, Search } from "@material-ui/icons";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -19,13 +27,18 @@ export default function TopAppBar() {
   return (
     <AppBar color="primary" position="fixed">
       <Toolbar className={classes.toolbar}>
-        <Avatar alt="Bohyeon" src="/bohyeon.jpeg" />
+        <Box display="flex" alignItems="center" >
+          <Avatar alt="Bohyeon" src="/bohyeon.jpeg" />
+          <IconButton disabled>
+            <Menu />
+          </IconButton>
+        </Box>
         <ButtonBase>
           <Link href="/">
             <Typography>보현's blog</Typography>
           </Link>
         </ButtonBase>
-        <IconButton>
+        <IconButton disabled>
           <Search />
         </IconButton>
       </Toolbar>

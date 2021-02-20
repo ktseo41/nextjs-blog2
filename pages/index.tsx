@@ -28,9 +28,10 @@ export default function Home({ recentCreatedHeaders, recentModifiedHeaders }: Ho
       <Box display="grid" className={classes.welcomeBox}>
         <Card elevation={0}>
           <Typography variant="h5">
-            안녕하세요!
-            <Typography variant="body1">제 블로그에 오신걸 환영합니다!</Typography>
+            안녕하세요
+            <Typography variant="body1">제 블로그에 오신걸 환영합니다</Typography>
             <Typography variant="body2">
+              <br  />
               🚧👷‍♂️ 모바일 화면 우선 개발중으로 PC 화면에서는 깨져보일 수 있습니다.
             </Typography>
           </Typography>

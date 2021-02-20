@@ -1,3 +1,9 @@
+---
+title : index
+created : 2021-02-20 02:58:05 +0900
+modified : 2021-02-20 21:44:38 +0900
+tag : 
+---
 ## [TODO](TODO)
 
 ## [vim](vim.md)
@@ -44,9 +50,6 @@
 
 ## [daily](daily.md)
 
-## [blog](blog)
+## [rust](rust) 
 
-## [rust](rust)
-
-## [나만의 블로그 만들기](나만의 블로그 만들기)
-
+## [블로그](블로그)
