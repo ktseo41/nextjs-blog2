@@ -76,7 +76,7 @@ export function ImageRightPost({
   timeToDisplay = 12,
   description = "card description. Ipsum nisi sunt dolor adipisicing",
   chips = ["css", "javascript", "web"],
-  imageSrc = "/bohyeon.jpeg",
+  imageSrc = "https://picsum.photos/72/72",
 }: {
   title?: string;
   timeToDisplay?: number;
