@@ -1,8 +1,21 @@
 import React from "react";
-import { Box, Container, Divider, Typography } from "@material-ui/core";
+import { Box, Container, Divider, makeStyles, Typography } from "@material-ui/core";
 import { ImageRightPost, ImageTopPost } from "./Post";
 import { WikiHeaderWithBody } from "../interfaces";
 import { WikiHeaderKey } from "../constants";
+
+const useStyles = makeStyles((theme) => {
+  return {
+    sectionContainer: {
+      padding: `0 ${theme.spacing(2)}px`,
+      marginBottom: theme.spacing(2),
+      backgroundColor: theme.palette.background.paper,
+    },
+    sectionTitle: {
+      padding: "16px 0",
+    },
+  };
+});
 
 export default function Section({
   sectionTitle = "",
@@ -16,11 +29,13 @@ export default function Section({
   sortBy?: Exclude<WikiHeaderKey, WikiHeaderKey.TAG | WikiHeaderKey.TITLE>;
   posts?: WikiHeaderWithBody[];
 }) {
+  const classes = useStyles();
+
   return (
-    <Container disableGutters={true}>
-      <Box style={{ padding: "16px 0" }}>
+    <Container className={classes.sectionContainer} disableGutters={true}>
+      <Container className={classes.sectionTitle}>
         <Typography variant="subtitle1">{sectionTitle}</Typography>
-      </Box>
+      </Container>
       {posts.map((header, id, { length }) => {
         if (id === 0 && !noTopImagePost)
           return (
@@ -43,7 +58,7 @@ export default function Section({
               />
               <Divider />
               <Box display="flex" justifyContent="center" style={{ padding: 16 }}>
-                <Typography>More Posts</Typography>
+                <Typography>{sectionTitle} 더 보기 →</Typography>
               </Box>
             </div>
           );
