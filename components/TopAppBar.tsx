@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router'
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
   Avatar,
@@ -10,7 +11,6 @@ import {
   Box,
 } from "@material-ui/core";
 import { Menu, Search } from "@material-ui/icons";
-import Link from "next/link";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,25 +18,41 @@ const useStyles = makeStyles((theme: Theme) =>
       display: "flex",
       justifyContent: "space-between",
     },
+    titleButton: {
+      display: "flex",
+      flexGrow: 1,
+      height: theme.spacing(7),
+    },
+    avatar: {
+      width: theme.spacing(4),
+      height: theme.spacing(4),
+      marginRight: theme.spacing(1),
+    },
+    homeLink: {
+      "&::focus": {
+        textDecoration: "underline",
+      },
+    },
   })
 );
 
 export default function TopAppBar() {
   const classes = useStyles();
+  const router = useRouter()
 
   return (
     <AppBar color="primary" position="fixed">
       <Toolbar className={classes.toolbar}>
-        <Box display="flex" alignItems="center" >
-          <Avatar alt="Bohyeon" src="/bohyeon.jpeg" />
+        <Box display="flex" alignItems="center">
           <IconButton disabled>
             <Menu />
           </IconButton>
         </Box>
-        <ButtonBase>
-          <Link href="/">
+        <ButtonBase className={classes.titleButton}>
+          <Box onClick={() => router.push('/')} display="flex" alignItems="center">
+            <Avatar className={classes.avatar} alt="Bohyeon" src="/bohyeon.jpeg" />
             <Typography>보현's blog</Typography>
-          </Link>
+          </Box>
         </ButtonBase>
         <IconButton disabled>
           <Search />

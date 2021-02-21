@@ -8,6 +8,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { Menu, Description, AccountCircle } from "@material-ui/icons";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -17,11 +18,9 @@ const useStyles = makeStyles((theme) => {
       bottom: 0,
     },
     body: {
-      margin: `${theme.spacing(7)}px ${theme.spacing(2)}px 0 ${theme.spacing(2)}px`,
+      marginTop: `${theme.spacing(7)}px`,
     },
-    footer: {
-      paddingBottom: theme.spacing(7),
-    },
+
   };
 });
 
@@ -31,17 +30,18 @@ export default function Layout({ children }) {
     <Container maxWidth={false} disableGutters={true}>
       <TopAppBar />
       <section className={classes.body}>{children}</section>
-      <footer className={classes.footer}>footer</footer>
+      <Footer />
+      {/* <footer className={classes.footer}>created by bohyeon</footer> */}
       {/* 기본적으로 하단 fixed가 아니라서 구글 뉴스를 보니 position fixed를 했음. 구글링도 유사하게 답 */}
       {/* 기본 elevation이 되있지 않아 찾아보니 :  You can wrap the BottomNavigation with a Paper component, it has an elevation property. */}
       {/* 출처 : https://github.com/mui-org/material-ui/issues/13953 */}
-      <Box className={classes.bottomNavigation} boxShadow={3}>
+      {/* <Box className={classes.bottomNavigation} boxShadow={3}>
         <BottomNavigation>
           <BottomNavigationAction showLabel={true} label="포스트" icon={<Description />} />
           <BottomNavigationAction showLabel={true} label="카테고리" icon={<Menu />} />
           <BottomNavigationAction showLabel={true} label="About Me" icon={<AccountCircle />} />
         </BottomNavigation>
-      </Box>
+      </Box> */}
     </Container>
   );
 }
