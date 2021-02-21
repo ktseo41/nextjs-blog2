@@ -5,14 +5,14 @@ import { getAllPostIds, getPostDatasFromId } from "../../lib/posts";
 const useStyles = makeStyles((theme) => {
   return {
     markedBody: {
+      padding: 8,
       wordBreak: "break-word",
       "& img": {
-        maxWidth: '100%'
+        maxWidth: "100%",
       },
     },
   };
 });
-
 
 export default function Post({ id, processedContent }) {
   const classes = useStyles();
