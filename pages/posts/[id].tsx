@@ -2,10 +2,15 @@ import { makeStyles } from "@material-ui/core";
 import React from "react";
 import { getAllPostIds, getPostDatasFromId } from "../../lib/posts";
 
-const useStyles = makeStyles({
-  markedBody: {
-    wordBreak: "break-word",
-  },
+const useStyles = makeStyles((theme) => {
+  return {
+    markedBody: {
+      wordBreak: "break-word",
+      "& img": {
+        maxWidth: '100%'
+      },
+    },
+  };
 });
 
 
