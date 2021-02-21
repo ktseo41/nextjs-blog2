@@ -1,9 +1,3 @@
----
-title : index
-created : 2021-02-20 02:58:05 +0900
-modified : 2021-02-20 21:44:38 +0900
-tag : 
----
 ## [TODO](TODO)
 
 ## [vim](vim.md)
