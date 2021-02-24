@@ -7,8 +7,20 @@ const useStyles = makeStyles((theme) => {
     markedBody: {
       padding: 8,
       wordBreak: "break-word",
+      backgroundColor: theme.palette.background.paper,
+      maxWidth: theme.breakpoints.values.lg,
+      margin: '0 auto',
       "& img": {
         maxWidth: "100%",
+        [theme.breakpoints.up('md')]: {
+          maxWidth: "70%"
+        }
+      },
+      "& p.caption": {
+        textAlign: "center",
+        margin: 0,
+        fontSize: theme.typography.caption,
+        marginBottom: theme.spacing(1),
       },
     },
   };
