@@ -1,10 +1,7 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import {
   Instagram,
-  Description,
-  AccountCircle,
   Facebook,
-  FaceOutlined,
   GitHub,
 } from "@material-ui/icons";
 
@@ -18,6 +15,7 @@ const useStyles = makeStyles((theme) => {
       height: theme.spacing(3),
       "& svg": {
         marginRight: theme.spacing(1),
+        cursor: "pointer",
       },
     },
   };
