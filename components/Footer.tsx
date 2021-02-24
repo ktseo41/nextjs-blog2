@@ -1,5 +1,12 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import { Instagram, Description, AccountCircle, Facebook, FaceOutlined } from "@material-ui/icons";
+import {
+  Instagram,
+  Description,
+  AccountCircle,
+  Facebook,
+  FaceOutlined,
+  GitHub,
+} from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -28,6 +35,10 @@ export default function Footer() {
         />
         <Facebook
           onClick={() => window.open("https://www.facebook.com/bohyeon0711/")}
+          style={{ height: 24, width: 24 }}
+        />
+        <GitHub
+          onClick={() => window.open("https://github.com/ktseo41")}
           style={{ height: 24, width: 24 }}
         />
       </Box>
