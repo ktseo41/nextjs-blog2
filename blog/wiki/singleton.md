@@ -1,8 +1,9 @@
 ---
 title : singleton
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-18 04:25:32 +0900
+created : 2021-02-18 04:58:27 +0900
+modified : 2021-02-25 22:14:14 +0900
 tag : 
+publish : true
 ---
 ## 자바스크립트 디자인 패턴 - PACKT
 

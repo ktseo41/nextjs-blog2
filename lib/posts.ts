@@ -98,6 +98,9 @@ export async function getRecentCreatedPosts(goalCount: number): Promise<WikiHead
 
   return Promise.all(
     allHeaders
+      .filter((header) => {
+        return header.publish === "true";
+      })
       .sort(
         ({ created: createdA }, { created: createdB }) =>
           new Date(createdB).getTime() - new Date(createdA).getTime()
@@ -115,6 +118,9 @@ export async function getRecentModifiedPosts(goalCount: number): Promise<WikiHea
 
   return Promise.all(
     allHeaders
+      .filter((header) => {
+        return header.publish === "true";
+      })
       .sort(
         ({ modified: modifiedA }, { modified: modifiedB }) =>
           new Date(modifiedB).getTime() - new Date(modifiedA).getTime()
@@ -122,7 +128,7 @@ export async function getRecentModifiedPosts(goalCount: number): Promise<WikiHea
       .slice(0, goalCount)
       .map(async (header) => {
         const texts = await getMinimumBodyFromId(header.title);
-        return { ...header, texts };;
+        return { ...header, texts };
       })
   );
 }

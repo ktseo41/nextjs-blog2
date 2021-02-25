@@ -1,8 +1,9 @@
 ---
 title : algorithm
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-17 17:14:36 +0900
+created : 2021-02-17 17:21:50 +0900
+modified : 2021-02-25 22:12:13 +0900
 tag : 
+publish : false
 ---
 ## binary tree search
 

@@ -1,20 +1,20 @@
 ---
 title : vim
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-19 22:12:02 +0900
+created : 2021-02-19 22:20:25 +0900
+modified : 2021-02-25 22:03:08 +0900
 tag : 
+publish : false
 ---
 ## 공부
 
--   https://www.openvim.com/
--   https://medium.com/@jungseobshin/vim-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%B2%95-4%EC%A3%BC-%EA%B3%84%ED%9A%8D-77f3f7e263f7 (vimtutor)
+-  https://www.openvim.com/
+-  https://medium.com/@jungseobshin/vim-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EB%B2%95-4%EC%A3%BC-%EA%B3%84%ED%9A%8D-77f3f7e263f7 (vimtutor)
 -  https://vimhelp.org/autocmd.txt.html#autocmd-intro (vim help 문서가 포맷팅돼있어서 더 보기 편하다.)
 
 ## howto
 
--   cw는 ce는 똑같다.
+-  cw는 ce는 똑같다.
 
-## [autocmd](autocmd)
 ## vimrc
 
 ### 위치

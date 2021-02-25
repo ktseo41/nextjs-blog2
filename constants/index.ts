@@ -3,4 +3,5 @@ export enum WikiHeaderKey {
   MODIFIED = "modified",
   TITLE = "title",
   TAG = "tag",
+  PUBLISH = "publish",
 }

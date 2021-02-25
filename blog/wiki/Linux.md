@@ -1,15 +1,15 @@
 ---
 title : Linux
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-17 17:20:29 +0900
+created : 2021-02-17 17:21:50 +0900
+modified : 2021-02-25 22:18:11 +0900
 tag : 
+publish : true
 ---
 ## Linux
-
-## commands
-### grep
+### commands
+#### grep
 grep filter는 파일에서 특정 패턴을 검색하고, 패턴에 맞는 모든 줄을 출력한다. 여기서 패턴은 정규표현식을 말한다
-#### Syntax
+
 `grep [options] pattern [files]`
 
 #### Options
