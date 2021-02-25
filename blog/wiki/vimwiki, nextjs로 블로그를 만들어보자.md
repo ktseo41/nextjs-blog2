@@ -1,8 +1,9 @@
 ---
-title : 블로그
-created : 2021-02-20 21:33:44 +0900
-modified : 2021-02-24 16:30:16 +0900
-tag : blog, next.js, vimwiki, material-ui
+title : vimwiki, nextjs로 블로그를 만들어보자
+created : 2021-02-25 22:23:05 +0900
+modified : 2021-02-25 22:28:04 +0900
+tag : 
+publish : true
 ---
 ## 블로그
 

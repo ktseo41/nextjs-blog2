@@ -1,8 +1,9 @@
 ---
 title : git
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-17 17:14:19 +0900
+created : 2021-02-17 17:21:50 +0900
+modified : 2021-02-25 22:12:04 +0900
 tag : 
+publish : false
 ---
 # git
 
@@ -70,8 +71,7 @@ v2.5
 v3.0
 
 $ git tag -d v2.5
-Deleted tag 'v2.5' (was aea93f1727)
-
+Deleted tag 'v2.5' (was aea93f1727) 
 $ git tag
 v1.0
 v2.0

@@ -1,8 +1,9 @@
 ---
 title : firewall
-created : 2020-12-16 12:12:37 +0900
-modified : 2021-02-17 17:17:55 +0900
+created : 2021-02-17 17:21:50 +0900
+modified : 2021-02-25 21:22:06 +0900
 tag : 
+publish : true
 ---
 ## firewall
 ### 방화벽이란?

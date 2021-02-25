@@ -1,8 +1,9 @@
 ---
 title : docker
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-18 04:20:20 +0900
+created : 2021-02-18 04:58:27 +0900
+modified : 2021-02-25 22:12:36 +0900
 tag : 
+publish : true
 ---
 ## installation
 ## ubuntu 서버에 docker 설치

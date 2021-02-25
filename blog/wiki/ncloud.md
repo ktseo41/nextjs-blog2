@@ -1,8 +1,9 @@
 ---
 title : ncloud
-created : 2020-09-19 12:02:13 +0900
-modified : 2021-02-18 04:20:32 +0900
+created : 2021-02-18 04:58:27 +0900
+modified : 2021-02-25 22:13:00 +0900
 tag : 
+publish : true
 ---
 ## 기본 server-setting
 

@@ -1,49 +1,53 @@
-## [TODO](TODO)
+- [TODO](TODO)
 
-## [vim](vim.md)
+- [nvim](nvim)
 
-## [vimscript](vimscript.md)
+- [vim](vim.md)
 
-## [hugo](hugo.md)
+- [vimscript](vimscript.md)
 
-## [git](git.md)
+- [hugo](hugo.md)
 
-## [algorithm](algorithm.md)
+- [git](git.md)
 
-## [infrastructure](infrastructure.md)
+- [algorithm](algorithm.md)
 
-## [notes](notes.md)
+* infrastructure
+  * [docker](docker)
+  * [docker-mysql](docker-mysql)
+  * [ncloud](ncloud)
 
-## [pattern](pattern.md)
+* notes
+  * [feconf2019](feconf2019)
 
-## [typeScript](typeScript.md)
+* design pattern
+  * [singleton](singleton)
 
-## [web](web.md)
+- [typeScript](typeScript.md)
 
-### [리소스](리소스.md)
+- [web](web.md)
 
-#### [URL](URL.md)
+- [URL](URL.md)
 
-#### [MIME](MIME.md)
+- [MIME](MIME.md)
 
-### network
+- [firewall](firewall)
 
-#### [firewall](firewall)
+- [regex실습](regex실습.md)
 
-### [regex실습](regex실습.md)
+- [OS](OS.md)
 
-## [OS](OS.md)
+- [프로세스](프로세스.md)
 
-### [프로세스](프로세스.md)
+- [Gatsby](Gatsby.md)
 
-## [Gatsby](Gatsby.md)
+- [Linux](Linux.md)
 
-## [Linux](Linux.md)
+- [daily](daily.md)
 
-## [nextjs](nextjs)
+- [rust](rust) 
 
-## [daily](daily.md)
+- [vimwiki, nextjs로 블로그를 만들어보자](vimwiki, nextjs로 블로그를 만들어보자)
 
-## [rust](rust) 
-
-## [블로그](블로그)
+* term
+  * [declarative](declarative)
