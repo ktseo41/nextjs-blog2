@@ -26,7 +26,7 @@ export default function Section({
   sectionTitle?: string;
   noTopImagePost?: boolean;
   // https://stackoverflow.com/questions/48850720/typescript-how-can-omit-some-items-from-an-enum-in-typescript
-  sortBy?: Exclude<WikiHeaderKey, WikiHeaderKey.TAG | WikiHeaderKey.TITLE>;
+  sortBy?: Exclude<WikiHeaderKey, WikiHeaderKey.TAG | WikiHeaderKey.TITLE | WikiHeaderKey.PUBLISH>;
   posts?: WikiHeaderWithBody[];
 }) {
   const classes = useStyles();
