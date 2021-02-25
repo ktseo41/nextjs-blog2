@@ -20,6 +20,19 @@ let maplocalleader = "\\"
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>eV :e $MYVIMRC<cr>
 onoremap ih :<c-u>execute "normal! ?^--\\\|^==\\+$\r:nohlsearch\rkvg_"<cr>
+nnoremap <leader>tp :call TogglePublish()<cr>
+nnoremap <leader>wh :call WriteHeader()<cr> 
+
+function! TogglePublish()
+  let @/ = 'publish'
+  execute "normal! gg^nww"
+  let l:currentWord = expand("<cword>")
+  if l:currentWord == "true"
+    execute "normal! cwfalse"
+  else
+    execute "normal! cwtrue"
+  endif
+endfunction
 
 function! IsHeaderExist()
   if match(getline(1), "^-\\+$") != "-1"
@@ -29,6 +42,18 @@ endfunction
 
 function! IsVimWiki()
   if match(expand('%:p'), "blog/wiki") != "-1" && &filetype == "vimwiki"
+    return 1
+  endif
+endfunction
+
+function! IsValidHeader()
+ if match(getline(1), "^-\\+$") != "-1" && match(getline(7), "^-\\+$") != "-1"
+   return 1
+ endif
+endfunction
+
+function! IsIndex()
+  if expand('%:t') == "index.md"
     return 1
   endif
 endfunction
@@ -43,25 +68,34 @@ function! GetCreatedTime()
   return l:createdTime
 endfunction 
 
+function! ActualWriteHeader()
+  call append(0, "---")
+  call append(1, "title : " . substitute(expand('%:t'), "\\.md", "", ""))
+  call append(2, "created : " . GetCreatedTime())
+  call append(3, "modified : " . strftime('%Y-%m-%d %H:%M:%S +0900'))
+  call append(4, "tag : ")
+  call append(5, "publish : false")
+  call append(6, "---")
+endfunction
+
 function! WriteHeader()
-  if &modified && IsHeaderExist() == 0 && IsVimWiki()
+  if &modified && IsHeaderExist() == 0 && IsVimWiki() && IsIndex() == 0 
     let b:saveWithHeader = input("make header? (y/n): ")
     if b:saveWithHeader != "n"
-      call append(0, "---")
-      call append(1, "title : " . substitute(expand('%:t'), "\\.md", "", ""))
-      call append(2, "created : " . GetCreatedTime())
-      call append(3, "modified : " . strftime('%Y-%m-%d %H:%M:%S +0900'))
-      call append(4, "tag : ")
-      call append(5, "---")
+      call ActualWriteHeader()
     endif
-  elseif &modified && IsHeaderExist() == 1
+  elseif &modified && IsHeaderExist() == 1 && IsValidHeader() == 1
     let lineNumber = 1
-    for line in getline(1, 6)
+    for line in getline(1, 7)
       if match(line, "modified : ") != "-1"
         call setline(lineNumber, substitute(line, "modified : .\\+", "modified : " . strftime('%Y-%m-%d %H:%M:%S +0900'), ""))
       endif
       let lineNumber = lineNumber + 1
     endfor
+  elseif &modified && IsHeaderExist() == 1 && IsValidHeader() == 0
+     execute "let @/ = '---'"
+     execute "normal! gg^vn$d"
+     call ActualWriteHeader()
   endif
 endfunction
 
