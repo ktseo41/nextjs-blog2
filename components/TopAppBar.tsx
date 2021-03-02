@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
 import { useRouter } from 'next/router'
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import {
@@ -36,20 +36,25 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function TopAppBar() {
+type TopAppBarProps = {
+  setDrawerOpened: Dispatch<SetStateAction<boolean>>;
+};
+
+export default function TopAppBar(props: TopAppBarProps) {
+  const { setDrawerOpened } = props;
   const classes = useStyles();
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <AppBar color="primary" position="fixed">
       <Toolbar className={classes.toolbar}>
         <Box display="flex" alignItems="center">
-          <IconButton disabled>
+          <IconButton onClick={() => setDrawerOpened(true)}>
             <Menu />
           </IconButton>
         </Box>
         <ButtonBase className={classes.titleButton}>
-          <Box onClick={() => router.push('/')} display="flex" alignItems="center">
+          <Box onClick={() => router.push("/")} display="flex" alignItems="center">
             <Avatar className={classes.avatar} alt="Bohyeon" src="/bohyeon.jpeg" />
             <Typography>보현's blog</Typography>
           </Box>
