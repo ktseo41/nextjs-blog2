@@ -32,6 +32,7 @@
   * [MIME](MIME.md)
 
 - [typeScript](typeScript.md)
+  * [unknown 타입과 type guard](unknown 타입과 type guard)
 
 - [firewall](firewall)
 
