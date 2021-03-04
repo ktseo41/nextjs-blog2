@@ -37,11 +37,11 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 type TopAppBarProps = {
-  setDrawerOpened: Dispatch<SetStateAction<boolean>>;
+  setSidebarOpened: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function TopAppBar(props: TopAppBarProps) {
-  const { setDrawerOpened } = props;
+  const { setSidebarOpened } = props;
   const classes = useStyles();
   const router = useRouter();
 
@@ -49,7 +49,7 @@ export default function TopAppBar(props: TopAppBarProps) {
     <AppBar color="primary" position="fixed">
       <Toolbar className={classes.toolbar}>
         <Box display="flex" alignItems="center">
-          <IconButton onClick={() => setDrawerOpened(true)}>
+          <IconButton onClick={() => setSidebarOpened(true)}>
             <Menu />
           </IconButton>
         </Box>

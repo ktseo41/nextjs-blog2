@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function Layout({ children }) {
-  const [drawerOpened, setDrawerOpened] = useState<boolean>(true);
+  const [sidebarOpened, setSidebarOpened] = useState<boolean>(true);
   const classes = useStyles();
   return (
     <Container maxWidth={false} disableGutters={true}>
-      <TopAppBar setDrawerOpened={setDrawerOpened} />
-      <Sidebar open={drawerOpened} onClose={() => setDrawerOpened(false)} />
+      <TopAppBar setSidebarOpened={setSidebarOpened} />
+      <Sidebar open={sidebarOpened} setOpen={setSidebarOpened} />
       <section className={classes.body}>{children}</section>
       <Footer />
       {/* <footer className={classes.footer}>created by bohyeon</footer> */}
