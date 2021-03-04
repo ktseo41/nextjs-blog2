@@ -16,6 +16,7 @@ import {
   Close,
   CreateOutlined,
   DescriptionOutlined,
+  HomeOutlined,
   KeyboardOutlined,
   ListAltOutlined,
   PlusOneOutlined,
@@ -141,6 +142,12 @@ export default function Sidebar(props: SidebarProps) {
           </Box>
           <Box>
             <List>
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<HomeOutlined />}
+                label={CategoryLabel.HOME}
+              />
               <CategoryListItem
                 onItemClick={onCategoryItemClick}
                 disabled={true}
