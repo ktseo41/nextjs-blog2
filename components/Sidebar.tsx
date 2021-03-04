@@ -70,6 +70,8 @@ function ChipLabel(props: ChipProps) {
 export default function Sidebar(props: SidebarProps) {
   const { open, setOpen } = props;
   const classes = useStyles();
+  const onCategoryItemClick = () => setOpen(false);
+
   return (
     <Drawer
       anchor="left"
@@ -93,9 +95,24 @@ export default function Sidebar(props: SidebarProps) {
             {"보현's blog"}
           </Typography>
           <List>
-            <CategoryListItem icon={<AccountCircle />} label={CategoryLabel.ABOUT_ME} />
-            <CategoryListItem icon={<BuildOutlined />} label={CategoryLabel.ABOUT_BLOG} />
-            <CategoryListItem icon={<DescriptionOutlined />} label={CategoryLabel.RESUME} />
+            <CategoryListItem
+              onItemClick={onCategoryItemClick}
+              disabled={true}
+              icon={<AccountCircle />}
+              label={CategoryLabel.ABOUT_ME}
+            />
+            <CategoryListItem
+              onItemClick={onCategoryItemClick}
+              icon={<BuildOutlined />}
+              label={CategoryLabel.ABOUT_BLOG}
+              link="/posts/vimwiki,%20nextjs로%20블로그를%20만들어보자"
+            />
+            <CategoryListItem
+              onItemClick={onCategoryItemClick}
+              disabled={true}
+              icon={<DescriptionOutlined />}
+              label={CategoryLabel.RESUME}
+            />
           </List>
           <Divider />
           <Box>
@@ -124,12 +141,42 @@ export default function Sidebar(props: SidebarProps) {
           </Box>
           <Box>
             <List>
-              <CategoryListItem icon={<ListAltOutlined />} label={CategoryLabel.VIEW_ALL} />
-              <CategoryListItem icon={<PlusOneOutlined />} label={CategoryLabel.RECENTLY_CREATED} />
-              <CategoryListItem icon={<CreateOutlined />} label={CategoryLabel.RECENTLY_MODIFIED} />
-              <CategoryListItem icon={<KeyboardOutlined />} label={CategoryLabel.DEVELOPMENT} />
-              <CategoryListItem icon={<ChromeReaderModeOutlined />} label={CategoryLabel.READING} />
-              <CategoryListItem icon={<ChatOutlined />} label={CategoryLabel.PERSONAL_LOG} />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<ListAltOutlined />}
+                label={CategoryLabel.VIEW_ALL}
+              />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<PlusOneOutlined />}
+                label={CategoryLabel.RECENTLY_CREATED}
+              />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<CreateOutlined />}
+                label={CategoryLabel.RECENTLY_MODIFIED}
+              />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<KeyboardOutlined />}
+                label={CategoryLabel.DEVELOPMENT}
+              />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<ChromeReaderModeOutlined />}
+                label={CategoryLabel.READING}
+              />
+              <CategoryListItem
+                onItemClick={onCategoryItemClick}
+                disabled={true}
+                icon={<ChatOutlined />}
+                label={CategoryLabel.PERSONAL_LOG}
+              />
             </List>
           </Box>
         </Box>
