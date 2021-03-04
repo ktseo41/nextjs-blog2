@@ -144,9 +144,9 @@ export default function Sidebar(props: SidebarProps) {
             <List>
               <CategoryListItem
                 onItemClick={onCategoryItemClick}
-                disabled={true}
                 icon={<HomeOutlined />}
                 label={CategoryLabel.HOME}
+                link="/"
               />
               <CategoryListItem
                 onItemClick={onCategoryItemClick}
