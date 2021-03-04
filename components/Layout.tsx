@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import TopAppBar from "./TopAppBar";
 import {
-  BottomNavigation,
-  BottomNavigationAction,
-  Box,
+  // BottomNavigation,
+  // BottomNavigationAction,
+  // Box,
   Container,
   makeStyles,
 } from "@material-ui/core";
-import { Menu, Description, AccountCircle } from "@material-ui/icons";
+// import { Menu, Description, AccountCircle } from "@material-ui/icons";
 import Footer from "./Footer";
+import Sidebar from "./Sidebar";
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -25,10 +26,12 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function Layout({ children }) {
+  const [sidebarOpened, setSidebarOpened] = useState<boolean>(true);
   const classes = useStyles();
   return (
     <Container maxWidth={false} disableGutters={true}>
-      <TopAppBar />
+      <TopAppBar setSidebarOpened={setSidebarOpened} />
+      <Sidebar open={sidebarOpened} setOpen={setSidebarOpened} />
       <section className={classes.body}>{children}</section>
       <Footer />
       {/* <footer className={classes.footer}>created by bohyeon</footer> */}
