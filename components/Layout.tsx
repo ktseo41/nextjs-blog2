@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => {
 });
 
 export default function Layout({ children }) {
-  const [sidebarOpened, setSidebarOpened] = useState<boolean>(true);
+  const [sidebarOpened, setSidebarOpened] = useState<boolean>(false);
   const classes = useStyles();
   return (
     <Container maxWidth={false} disableGutters={true}>
