@@ -16,6 +16,13 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
+        {/* Global site tag (gtag.js) - Google Analytics */}
+        {process.env.NODE_ENV === 'production' && <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}></script>}
+        {process.env.NODE_ENV === 'production' && <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.GA_TRACKING_ID}');`}} />}
         <body>
           <Main />
           <NextScript />
